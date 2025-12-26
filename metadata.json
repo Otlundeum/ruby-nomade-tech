@@ -1,0 +1,7 @@
+{
+  "name": "Ruby - Assistant IA Nomade Technology",
+  "description": "Un chatbot intelligent professionnel conçu pour Nomade Technology, offrant un support client et des informations sur les services de l'entreprise avec une interface élégante vert et blanc.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
