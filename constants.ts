@@ -12,27 +12,27 @@ export const SERVICES: Service[] = [
   {
     id: 'chatbot',
     name: '🤖 Conception de Chatbot IA',
-    description: `Nous concevons des agents conversationnels intelligents basés sur les dernières avancées en Intelligence Artificielle. Nos chatbots automatisent votre service client, qualifient vos prospects et améliorent l'engagement sur vos plateformes 24h/24. C'est la solution idéale pour moderniser votre entreprise.`
+    description: `Nous concevons des agents conversationnels intelligents basés sur les dernières avancées en Intelligence Artificielle. Nos chatbots automatisent votre service client, qualifient vos prospects et améliorent l'engagement sur vos plateformes 24h/24.`
   },
   {
     id: 'ecommerce',
     name: '🛒 Boutique e-commerce',
-    description: `Nomade Technology accompagne les entrepreneurs et entreprises dans la création et la gestion de boutiques en ligne performantes. Nous prenons en charge toutes les étapes clés : configuration, paiement et optimisation client.`
+    description: `Nomade Technology accompagne les entrepreneurs dans la création et la gestion de boutiques en ligne performantes (configuration, paiement et optimisation client).`
   },
   {
     id: 'formation',
     name: '🎓 Formations en ligne',
-    description: `Nous proposons des formations de pointe pour maîtriser le marketing digital, le e-commerce et les nouvelles technologies.`
+    description: `Maîtrisez le marketing digital, le e-commerce et l'IA avec nos programmes. Vous pouvez consulter notre catalogue complet sur www.nomadetech.digital ou opter pour une formation privée 100% sur-mesure.`
   },
   {
     id: 'coaching',
     name: '🤝 Coaching',
-    description: `Un service de coaching personnalisé pour aider les entrepreneurs et professionnels à structurer leurs projets numériques et clarifier leurs objectifs.`
+    description: `Un service de coaching personnalisé pour aider les entrepreneurs à structurer leurs projets numériques et clarifier leurs objectifs.`
   },
   {
     id: 'devweb',
     name: '💻 Développement web',
-    description: `Nous réalisons des sites web et applications sur mesure : sites vitrines, plateformes e-commerce et outils métiers performants.`
+    description: `Nous réalisons des sites web et applications sur mesure : vitrines, plateformes e-commerce et outils métiers performants.`
   },
   {
     id: 'support',
@@ -53,7 +53,4 @@ RÈGLES DE FORMATAGE:
 - Utilise uniquement des sauts de ligne pour aérer le texte.
 - Utilise des tirets (-) pour les listes.
 - Ton ton doit être technologique, poli et efficace.
-
-MESSAGE D'ACCUEIL:
-Salue l'utilisateur. Présente-toi comme l'IA de Nomade Technology. Liste brièvement nos expertises : Chatbots IA, E-commerce, Formations, Coaching et Web.
 `;

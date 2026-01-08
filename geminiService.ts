@@ -3,7 +3,7 @@ import { Message } from "./types";
 import { COMPANY_NAME, SERVICES, CONTACT_PHONE } from "./constants";
 
 /**
- * RUBY LOCAL ENGINE (V2.0)
+ * RUBY LOCAL ENGINE (V2.2)
  * Un moteur de réponse déterministe et intelligent qui fonctionne à 100% en local.
  */
 
@@ -18,8 +18,9 @@ export const getGeminiResponse = async (
   _currentTime: string,
   _selectedService?: string
 ): Promise<string> => {
-  // Simulation d'un temps de réflexion naturel pour l'UX
-  await new Promise(resolve => setTimeout(resolve, Math.random() * 400 + 400));
+  // Simulation d'un temps de frappe réaliste (entre 2 et 3.5 secondes)
+  const typingDelay = Math.random() * 1500 + 2000;
+  await new Promise(resolve => setTimeout(resolve, typingDelay));
 
   const lastMessage = history.filter(m => m.role === 'user').pop();
   if (!lastMessage) return "Bonjour ! Je suis Ruby. Comment puis-je vous aider aujourd'hui ?";
@@ -29,17 +30,22 @@ export const getGeminiResponse = async (
   // 1. DÉTECTION DES INTENTIONS PAR SCORING
   const intents: IntentResponse[] = [
     {
-      keywords: ["oumar", "tidiane", "rachid", "admin", "boss", "directeur", "responsable", "chef"],
+      keywords: ["oumar", "tidiane", "rachid", "otleer", "admin", "boss", "directeur", "responsable", "chef", "où est", "ou est"],
       response: `Mon administrateur Oumar Tidiane est indisponible pour le moment mais vous pouvez le joindre directement sur son numéro : ${CONTACT_PHONE}.`,
+      priority: 10
+    },
+    {
+      keywords: ["créé", "créer", "conçu", "fabriqué", "développé", "fait", "qui t'a", "origine", "parent", "papa", "maman", "ton createur", "ton créateur"],
+      response: "Je ne peux pas répondre à cette question mais vous pouvez prendre rendez-vous avec mon administrateur Oumar Tidiane pour discuter de cette question.",
       priority: 10
     },
     {
       keywords: ["prix", "tarif", "combien", "coute", "coût", "payer", "argent", "devis", "budget", "facture"],
       response: () => {
         if (query.includes("formation")) {
-          return "Pour les formations, vous pouvez consulter les tarifs et payer en toute sécurité sur notre plateforme officielle : www.nomadetech.digital. Pour les autres services, le prix dépend de votre projet. Laissez-moi vos coordonnées pour un devis personnalisé.";
+          return "Pour les formations, vous pouvez consulter les tarifs et payer en toute sécurité sur notre plateforme officielle : www.nomadetech.digital. Pour les autres services, le prix dépend de votre projet. Souhaitez-vous que je transmette vos coordonnées à l'administrateur pour un devis personnalisé ?";
         }
-        return "Nos tarifs sont sur-mesure car chaque projet est unique. L'administrateur vous recontactera avec une proposition chiffrée. Pourriez-vous me laisser vos coordonnées (Nom, Email, Tel) ?";
+        return "Nos tarifs sont sur-mesure car chaque projet est unique. Souhaitez-vous que je transmette vos coordonnées à l'administrateur Oumar Tidiane pour qu'il vous recontacte avec une proposition chiffrée ?";
       },
       priority: 9
     },
@@ -92,7 +98,7 @@ export const getGeminiResponse = async (
 
   // Fallback si aucun mot-clé n'est détecté
   if (query.length > 3) {
-    return "Je comprends votre message. Pour vous répondre précisément, je dois en informer l'administrateur. Souhaitez-vous que je lui transmette vos coordonnées pour qu'il vous recontacte ?";
+    return "Je comprends votre message. Souhaitez-vous que je transmette vos coordonnées à l'administrateur pour qu'il vous recontacte ?";
   }
 
   return "Désolée, je n'ai pas bien saisi. Je suis programmée pour aider l'administrateur de Nomade Technology sur les demandes de Chatbots, E-commerce, Formations et Web. Que puis-je faire pour vous ?";
